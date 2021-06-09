@@ -18,3 +18,5 @@ function countDynamicWidth() {
 }
 
 window.onresize = countDynamicWidth;
+
+
