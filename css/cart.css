@@ -159,6 +159,12 @@ h1 {
   justify-content: space-around;
 }
 
+.plus,
+.minus {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
 @media  only screen  and (max-width: 650px) {
   h1 {
     grid-column: 1 / span 2;
