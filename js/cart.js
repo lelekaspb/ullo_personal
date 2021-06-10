@@ -22,44 +22,40 @@ window.onresize = countDynamicWidth;
 // dynamic cart
 const cart = {
   contents: JSON.parse(localStorage.getItem("basket")) || [],
-  //cartItems: Number(localStorage.getItem("cartItems")) || 0,
+  cartItems: Number(localStorage.getItem("cartItems")) || 0,
   init() {
     this.updateDOM();
-   // this.updateCartNav();
+    this.updateCartNav();
     this.updateLocalStorage();
   },
   updateLocalStorage() {
     //maybe separate it into two methods?
     localStorage.setItem("basket", JSON.stringify(this.contents));
-    //localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
   },
-  // updateCartNav() {
-  //   if (this.cartItems > 0) {
-  //     console.log("cartItems updateCartNav");
-  //     document.querySelector(".cart_items_counter").style.display = "block";
-  //     document.querySelector(
-  //       ".cart_items_counter"
-  //     ).textContent = this.cartItems;
-  //   } else {
-  //     document.querySelector(".cart_items_counter").style.display = "none";
-  //   }
-  //   this.updateLocalStorage();
-  // },
+  updateCartNav() {
+    if (this.cartItems > 0) {
+      console.log("cartItems updateCartNav");
+      document.querySelector(".cart_items_counter").style.display = "flex";
+      document.querySelector(
+        ".cart_items_counter"
+      ).textContent = this.cartItems;
+    } else {
+      document.querySelector(".cart_items_counter").style.display = "none";
+    }
+    this.updateLocalStorage();
+  },
   updateDOM() {
     console.log("updateDOM function");
     if (cart.contents.length === 0) {
       console.log("cart is empty");
-      // document.querySelector(".cart_contents").classList.add("hidden");
-      // document.querySelector(".cart_addons").classList.add("hidden");
-      // document.querySelector(".cart_coupon").classList.add("hidden");
-      // document.querySelector(".cart_checkout").style.display = "none";
-      // document.querySelector(".cart_empty").classList.remove("hidden");
+      document.querySelector(".cart").style.display = "none";
+      document.querySelector(".cart_summary").style.display = "none";
+      document.querySelector(".cart_empty").classList.remove("hidden");
     } else {
-      // document.querySelector(".cart_contents").classList.remove("hidden");
-      // document.querySelector(".cart_addons").classList.remove("hidden");
-      // document.querySelector(".cart_coupon").classList.remove("hidden");
-      // document.querySelector(".cart_checkout").style.display = "grid";
-      // document.querySelector(".cart_empty").classList.add("hidden");
+      document.querySelector(".cart").style.display = "grid";
+      document.querySelector(".cart_summary").style.display = "grid";
+      document.querySelector(".cart_empty").classList.add("hidden");
       let cartTotal = 0;
       const cartItemTemplate = document.querySelector(".cart_item_template")
         .content;
@@ -107,7 +103,7 @@ const cart = {
             quantityParent.querySelector(
               ".quantity"
             ).textContent = cartQuantityInput;
-            //cart.cartItems++;
+            cart.cartItems++;
             item.quantity = cartQuantityInput;
             console.log(item.quantity);
             cart.update(item);
@@ -125,7 +121,7 @@ const cart = {
               item.quantity = 0;
             } else {
               cartQuantityInput--;
-              //cart.cartItems--;
+              cart.cartItems--;
               console.log(cartQuantityInput);
               const quantityParent = this.parentElement.parentElement.parentElement;
               quantityParent.querySelector(
@@ -137,11 +133,6 @@ const cart = {
             }
           });
 
-        // cartItemClone
-        //   .querySelector(".item_delete")
-        //   .addEventListener("click", () => {
-        //     cart.deleteCartItem(item);
-        //   });
         cartItemParent.appendChild(cartItemClone);
         document.querySelector(
           ".total_number > span"
@@ -205,7 +196,7 @@ const cart = {
       let _cart = JSON.stringify(cart.contents);
       localStorage.setItem("basket", _cart);
     }
-    //this.updateCartNav();
+    this.updateCartNav();
   },
   deleteCartItem(item) {
     console.log("cart deleteCartItem(item) function");
@@ -221,13 +212,7 @@ const cart = {
     this.cartItems = cartQuantity;
     this.updateLocalStorage();
     this.updateDOM();
-    //this.updateCartNav();
+    this.updateCartNav();
   },
-  // deleteCartItemNav(num) {
-  //   console.log("cartItems deleteCartItem");
-  //   cart.cartItems = cart.cartItems - num;
-  //   this.updateCartNav();
-  //   this.updateLocalStorage();
-  // },
 };
 cart.init();
