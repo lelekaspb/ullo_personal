@@ -82,7 +82,10 @@
           <img src="assets/icons/search.svg" alt="Icon of a magnifying glass" />
         </div>
         <a class="menu_cart" href="cart.html">
-          <img src="assets/icons/cart.svg" alt="Shopping cart" />
+          <div class="cart_wrapper">
+            <img src="assets/icons/cart.svg" alt="Shopping cart" />
+            <div class="cart_items_counter"></div>
+            </div>
         </a>
         <div id="hamburger" class="ham hidden"></div>
       </nav>
@@ -140,15 +143,17 @@
               <span>ZigBee 3.0</span>
             </div>
           </div>
-          <div class="quantity_wrapper">
-            <span class="btn_quantity minus">-</span>
-            <input type="number" class="quantity" value="1" min="1" max="10" />
-            <span class="btn_quantity plus">+</span>
-          </div>
-          <div class="buttons">
-            <button class="add_to_cart">Add to cart</button>
-            <a href="products.html" class="back_shopping">Continue shopping</a>
-          </div>
+          <form action="#" class="quantity_form">
+            <div class="quantity_wrapper">
+              <span class="btn_quantity minus">-</span>
+              <input type="number" name="quantity" class="quantity" value="1" min="1" max="10" />
+              <span class="btn_quantity plus">+</span>
+              </div>
+              <div class="buttons">
+              <button type="submit" class="add_to_cart">Add to cart</button>
+              <a href="products.html" class="back_shopping">Continue shopping</a>
+              </div>
+          </form>
         </article>
         <article class="product_images">
           <div class="image_wrapper">
@@ -353,5 +358,6 @@
     </footer>
     <script src="js/main.js"></script>
     <script src="js/individual_product.js"></script>
+    <!-- <script src="js/cart_nav.js"></script> -->
   </body>
 </html>

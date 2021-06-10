@@ -113,8 +113,34 @@ function showProduct(product) {
   document.querySelector(".price > span").textContent = product.price_current;
   document.querySelector(".description").textContent = product.description;
   document.querySelector("title").textContent = product.title;
-  document.querySelector(".add_to_cart").addEventListener("click", () => {
-    cartInd.add(product);
+  // document.querySelector(".add_to_cart").addEventListener("click", () => {
+  //   cartInd.add(product);
+  // });
+  const quantityForm = document.querySelector("form.quantity_form");
+  quantityForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const quantityInput = Number(quantityForm.elements.quantity.value);
+    console.log(quantityInput);
+    console.log(product.quantity);
+
+    let cartItems = Number(localStorage.getItem("cartItems"));
+    console.log(cartItems);
+    const index = cartInd.contents.findIndex(
+      (element) => element._id === product._id
+    );
+    if (index == -1) {
+      product.quantity = quantityInput;
+      console.log(cartInd.contents);
+      cartInd.contents.push(product);
+    } else {
+      console.log("found");
+      cartInd.contents[index].quantity += quantityInput;
+    }
+    cartItems += quantityInput;
+    console.log(cartItems);
+    cartInd.updateLocalStorage(cartItems);
+    //cartInd.updateLocalStorage();
+    cartInd.updateCartNav(cartItems);
   });
 }
 
@@ -128,45 +154,53 @@ function changeImage(smallImage) {
 //dynamic cart
 const cartInd = {
   contents: JSON.parse(localStorage.getItem("basket")) || [],
-  // init() {
-  //   console.log("cartItems init");
-  //   let _contents = localStorage.getItem("cartItems");
-  //   console.log(_contents);
-  //   if (_contents) {
-  //     cartItems = _contents;
-  //   }
-  //   // this.updateCartNav(cartItems);
-  // },
-  updateLocalStorage() {
+  cartItems: Number(localStorage.getItem("cartItems")) || 0,
+  init() {
+    console.log("cartInd init");
+    console.log(this.cartItems);
+    // let cartItems;
+    // let _contents = localStorage.getItem("cartItems");
+    // console.log(_contents);
+    // if (_contents) {
+    //   cartItems = _contents;
+    // } else {
+    //   cartItems = 0;
+    // }
+    this.updateLocalStorage(this.cartItems);
+    this.updateCartNav(this.cartItems);
+  },
+  updateLocalStorage(cartItems) {
+    console.log(cartItems);
     localStorage.setItem("basket", JSON.stringify(this.contents));
-    // localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   },
-  // updateCartNav(cartItems) {
-  //   if (cartItems > 0) {
-  //     console.log("cartItems updateCartNav");
-  //     document.querySelector(".cart_items_counter").style.display = "block";
-  //     document.querySelector(".cart_items_counter").textContent = cartItems;
-  //   } else {
-  //     document.querySelector(".cart_items_counter").style.display = "none";
-  //   }
-  // },
-  add(obj) {
-    console.log("cartInd add(obj) function");
-    const index = cartInd.contents.findIndex(
-      (element) => element._id === obj._id
-    );
-    if (index == -1) {
-      console.log(obj);
-      obj.quantity = 1;
-      console.log(cartInd.contents);
-      cartInd.contents.push(obj);
+  updateCartNav(cartItems) {
+    if (cartItems > 0) {
+      console.log("cartItems updateCartNav");
+      console.log(cartItems);
+      document.querySelector(".cart_items_counter").style.display = "flex";
+      document.querySelector(".cart_items_counter").textContent = cartItems;
     } else {
-      console.log("found");
-      cartInd.contents[index].quantity += 1;
+      document.querySelector(".cart_items_counter").style.display = "none";
     }
-
-    this.updateLocalStorage();
   },
+  // add(obj) {
+  //   console.log("cartInd add(obj) function");
+  //   const index = cartInd.contents.findIndex(
+  //     (element) => element._id === obj._id
+  //   );
+  //   if (index == -1) {
+  //     console.log(obj);
+  //     obj.quantity = 1;
+  //     console.log(cartInd.contents);
+  //     cartInd.contents.push(obj);
+  //   } else {
+  //     console.log("found");
+  //     cartInd.contents[index].quantity += 1;
+  //   }
+
+  //   this.updateLocalStorage();
+  // },
 };
-// cartInd.init();
+cartInd.init();
 console.log(cartInd.contents);

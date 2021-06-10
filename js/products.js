@@ -43,6 +43,8 @@ function start() {
     productClone.querySelector(".add_to_cart").addEventListener("click", () => {
       console.log(bulb);
       cart.add(bulb);
+      cartItems.sync();
+      cartItems.addCartItem();
     });
     productParent.appendChild(productClone);
   }
@@ -126,23 +128,15 @@ function changeToNoColor(e) {
 
 // dynamic cart
 const cart = {
-  KEY: "basket",
-  contents: [],
+  contents: JSON.parse(localStorage.getItem("basket")) || [],
   init() {
-    // _contents is a temporary string
-    let _contents = localStorage.getItem(cart.KEY);
-    if (_contents) {
-      // if there is anything there, turn it into a js object that we can access with dot notation
-      cart.contents = JSON.parse(_contents);
-    }
-    // update the DOM
-    //this.updateDOM(); //use this when not hardcoding the contents
-    cart.sync();
+    //this.updateDOM();
+    this.updateCartNav();
+    this.updateLocalStorage();
   },
-  sync() {
+  updateLocalStorage() {
     // turn CART contents array of objects into a string that we can write in localStorage
-    let _cart = JSON.stringify(cart.contents);
-    localStorage.setItem(cart.KEY, _cart);
+    localStorage.setItem("basket", JSON.stringify(this.contents));
     //CART.updateDOM();
   },
   add(obj) {
@@ -158,6 +152,6 @@ const cart = {
       cart.contents[index].quantity += 1;
     }
 
-    this.sync();
+    this.updateLocalStorage();
   },
 };

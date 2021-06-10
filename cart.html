@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/cart.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <title>My cart</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> -->
     
 </head>
@@ -19,7 +20,7 @@
       <div class="menu_text" id="menu_text_id">
         <ul>
           <li><a href="home.html">Home</a></li>
-          <li class="menu_dropdown active">
+          <li class="menu_dropdown">
             <a href="products.html">Products</a>
             <img
               id="menu_drop1"
@@ -82,7 +83,10 @@
         <img src="assets/icons/search.svg" alt="Icon of a magnifying glass" />
       </div>
       <a class="menu_cart" href="cart.html">
-        <img src="assets/icons/cart.svg" alt="Shopping cart" />
+        <div class="cart_wrapper">
+          <img src="assets/icons/cart.svg" alt="Shopping cart" />
+          <div class="cart_items_counter"></div>
+          </div>
       </a>
       <div id="hamburger" class="ham hidden"></div>
     </nav>
@@ -176,11 +180,11 @@
           </div>
           <div class="price cart_product_elem">
             <span class="price_heading">Price</span>
-            <span class="price_value value"> <span class="price_value_number">249</span> &nbsp; kr</span>
+            <span class="price_value value"> <span class="price_value_number">249</span>&nbsp;kr</span>
           </div> 
           <div class="subtotal cart_product_elem">
             <span class="subtotal_heading">Subtotal</span>
-            <span class="subtotal_value value"> <span class="subtotal_value_number">498</span> &nbsp; kr</span>
+            <span class="subtotal_value value"> <span class="subtotal_value_number">498</span>&nbsp;kr</span>
           </div>
           <div class="plusminus cart_product_elem">
             <div class="plus">+</div>

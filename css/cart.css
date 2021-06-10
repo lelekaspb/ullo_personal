@@ -129,7 +129,6 @@ h1 {
     left: 50%;
     margin: calc(-1 *((var(--dynamic-width) / 3) / 2));
     /* margin: -2rem; */
-    cursor: pointer;
     box-shadow:  .5px 1.5px 10px 2px rgba(60, 219, 192, .5);
     transform: rotate(-40deg) translate(calc(var(--dynamic-width) / 2)) rotate(40deg);
     /* transform: rotate(-50deg) translate(6.5rem) rotate(50deg); */

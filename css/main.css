@@ -233,6 +233,28 @@ header img {
   }
 }
 
+.cart_wrapper {
+  position: relative;
+}
+
+.cart_items_counter {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  color: var(--main-text-color);
+  border-radius: 50%;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  box-shadow:  .5px 1.5px 10px 2px rgba(60, 219, 192, .5);
+}
+
 /* Menu ends */
 
 /* footer styling */
