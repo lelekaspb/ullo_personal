@@ -158,7 +158,7 @@ const cart = {
     console.log("cart update(item) function");
     console.log(obj);
     console.log(obj.quantity);
-    //   //find the index of the object
+    //find the index of the object
     const index = cart.contents.findIndex((element) => element._id === obj._id);
     //console.log(index);
     if (obj.quantity === 0) {

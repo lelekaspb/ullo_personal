@@ -121,7 +121,7 @@
                             <div class="seperatingline2"></div>
 
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com">
+                            <input type="text" id="email_order" name="email" placeholder="john@example.com">
                             <label>
                               <input type="checkbox" checked="checked" name="method2"> I want to receive emails with news and offers
                             </label>
@@ -173,60 +173,81 @@
 
 <aside>
   <div class="shopping-cart">
-    <div class="title">
-Order Summary    </div>
-<div class="image">
-  <img class="checkoutimage" src="assets/images/flex_strip_1.png" alt="" />
-  
-</div>
-<div class="circle">
-  <p>1</p>
-</div>
+    <h2 class="summary_title">Order summary</h2>
 
-<p class="carttotal"><span>25 DKK</span></p>
+    <div class="order_products">
+      <div class="order_products_item">
+        <div class="title order_product_elem">
+          <span class="title_value value">Glow E27</span>
+        </div>
+        <div class="subtotal order_product_elem">
+          <span class="subtotal_value value"> <span class="subtotal_value_number">498</span>&nbsp;kr</span>
+        </div>
+        <div class="order_image">
+          <div class="image_wrapper">
+            <img src="assets/images/glow_E27_1.png" alt="" class="big_image">
+            <div class="quantity">2</div>
+          </div>
+        </div>
+      </div> 
+        <!--div.order_products_item ends-->
+    </div>
+    <!--div.order_products ends-->
 
-<div class="image">
-  <img class="checkoutimage" src="assets/images/glow_E27_1.png" alt="" />
-</div>
-<div class="circle">
-  <p>2</p>
-</div>
-<p class="carttotal"><span>25 DKK</span></p>
+
+
 <div class="seperatingline"></div>
 <div class="p2">Do you have a discount code?</div>
 
 <div class="discountcodediv">
-  <div class="flex">
-    <input type="text" id="discountcode" name="discountcode" />
-    <a href="creditcardnew.html"><input type="submit" value="Submit" class="button_dark2"/></a>
-  </div>
+  <form action="#" class="discount">
+    <input type="text" id="discountcode" name="discountcode" placeholder="Coupon code"/>
+    <input type="submit" value="Apply coupon" class="button_dark2"/>
+  </form>
 </div>
 <div class="seperatingline"></div>
-<div class="carttotaltext">
+<!-- <div class="carttotaltext">
   <p>Subtotal</p>
   <p class="carttotalprice"><span>234 DKK</span></p>
-</div>
-<div class="carttotaltext">
+</div> -->
+<div class="shipping_fee">
   <p>Shipping</p>
-  <p class="carttotalprice"><span>25 DKK</span></p>
+  <p class="shipping_fee_value">49 kr</p>
 </div>
 <div class="seperatingline"></div>
 
-<div class="carttotaltext">
-  <h3>Total</h3>
-  <h3 class="carttotalprice"><span>259 DKK</span></h3>
+<div class="order_total">
+  <p>Total</p>
+  <p class="order_total_value"><span class="order_total_number"></span>&nbsp;kr</p>
 
 </div>
-<a href="creditcardnew.html"><input type="submit" value="Payment" class="button_dark"/></a>
+<input type="submit" value="Place order" class="button_dark"/>
 
 
 </div>
 
 
-</aside>
+    <template class="order_template">
+      <div class="order_products_item">
+        <div class="title order_product_elem">
+          <span class="title_value value">Glow E27</span>
+        </div>
+        <div class="subtotal order_product_elem">
+          <span class="subtotal_value value"> <span class="subtotal_value_number">498</span>&nbsp;kr</span>
+        </div>
+        <div class="order_image">
+          <div class="image_wrapper">
+            <img src="assets/images/glow_E27_1.png" alt="" class="big_image">
+            <div class="quantity">2</div>
+          </div>
+        </div>
+      </div> 
+    </template>
+
+  </aside>
 
 
-    <footer class="main_footer">
+  <footer class="main_footer">
       <div class="footer_wrapper">
         <section class="footer_links">
           <h4>Site links</h4>
@@ -315,7 +336,8 @@ Order Summary    </div>
       </section>
     
     
- </footer>
+  </footer>
+  <script src="js/main.js"></script>
   <script src="js/checkout.js"></script>
 </body>
 </html>
