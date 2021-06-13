@@ -75,6 +75,7 @@ h2.summary_title {
 .order_products_item {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr .8fr;
+  color:#eee8e8;
 }
 
 .order_products_item > .title {
@@ -198,37 +199,6 @@ h2.summary_title {
   margin-left: 2rem;
 }
 
-form.discount {
-  width: fit-content;
-  max-width: 100%;
-  display: flex;
-  margin: calc(1rem + 1vw);
-  border: 1px solid var(--pantone);
-}
-
- form.discount input[type=text] {
-  height: 2.5rem;
-  margin: 0;
-  border: none;
-  width: calc(18rem + 5vw);
-  border-radius: 0;
-}
-
-form.discount input[type=text]::placeholder {
-  font-size: calc(.7rem + .5vw);
-}
-
-form.discount input[type=submit] {
-  height: 4rem;
-  margin: 0;
-  width: calc(12.5rem + 5vw);
-}
-
-form.discount input[type=submit].button_dark2:hover {
-  opacity: 0.7;
-}
-
-
   
 input[type=text] {
   width: 80%;
@@ -246,108 +216,29 @@ label {
 }
 
 
-input[type=submit].button_dark {
-  margin: calc(1rem + 1vw) auto;
+ 
+h3 {
+  font-family:  "Poppins", 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: Medium;
+  font-size: 24px;
+  padding-bottom: 10px;
 }
 
-.p2 {
-  margin-left: calc(1rem + 1vw);
-  margin-top: calc(1rem + 1vw);
-  margin-bottom: 0;
-  color: #eee8e8;
-  font-size: 1rem;
-  font-family: "Poppins";
-}
-
-.button_dark2 {
-  font-family: "Poppins";
-  font-size: 20px;
-  font-weight: 600;
-  height: auto;
-  border: none;
-  background: #403e3e;
-  cursor: pointer;
-  color: #3cdbc0;
-}
-
-  
-.button_dark:hover {
-  box-shadow: 0 0 10px 5px #3cdbc08a;
-}
-
-  
-   
-  
-  
-
-
-    span {
-      color:white;
-      justify-content: space-between;
-      display: inline;
-    }
-  
-    h3 {
-        font-family:  "Poppins", 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-style: Medium;
-        Font-size: 24px;
-        padding-bottom: 10px;
-  
-    }
-
-    .method2 {
-      font-size: 5em;
-    }
-  
-    
-
-.order p {
-    font-family: "Poppins";
-    text-align: center;
-}
-
-.username {
-margin-left: 10px;
-}
-
-p {
-  font-family: "Poppins";
-  font-size: 11px;
-
-}
 
 .shopping-cart {
   width: 100%;
   height: auto;
-  /* margin: 70px auto; */
   background: #333333;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  /* float: right; */
 }
 
 @media  only screen  and (max-width: 850px) {
   .shopping-cart {
     border-radius: 0;
-    /* padding: 2rem; */
   }
 }
-
-
-
-.checkoutimage {
-  width: 7.5rem;
-  height: 7.5rem;
-  background-color: white;
-  border-radius: 50%;
-  display: inline-block;
-  list-style: none;
-  gap: 2rem;
-  margin-left: 1.3rem;
-  justify-content: space-between;
-}
-
 
 
 input#email_order {
@@ -375,8 +266,6 @@ input#email_order {
   height: 1px;
   background-color:black;
   margin-bottom: 1rem;
-
-
 }
 
 hr {
@@ -481,8 +370,6 @@ a.button2{
   transform-origin: bottom left;
 }
 
-
-
 .place_order:hover {
   box-shadow: 0 0 10px 5px #3cdbc08a;
 }
@@ -496,88 +383,27 @@ html {
   font-size: 100%;
 }
 
-p,
-q {
-  font-family: "Poppins", sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Poppins", sans-serif;
-}
-
-h1 {
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 1.2rem;
-}
-
-p {
-  font-size: 1rem;
-}
-
 a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  
+  text-decoration: none;
+  color: black;
+}
   
 
-  
-  .hidden_sustainability {
+
+@media only screen  and (max-width: 800px) {
+    
+  .col-25 {
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  hr{
     display: none;
   }
 
-  @media only screen  and (max-width: 800px) {
-    
-    .col-25 {
-      margin-bottom: 20px;
-      display: block;
-    }
-
-
-    hr{
-      display: none;
-    }
-
-    /* a.button1 {
-      display: inline-flex;
-      float: center;
-      position: relative;
-      margin-right: 20%;
-      text-decoration: underline;
-      border:none;
-    }
-
-    a.button2 {
-      display: inline-flex;
-      position: relative;
-      text-decoration: underline;
-      border:none;
-      margin-left: 20%;
-    } */
-
-    .button_dark {
-      margin-left: 50%;
- }
-  
+  .button_dark {
+    margin-left: 50%;
   }
-
-
-@media only screen  and (min-width: 800px) {
-    .btn {
-      width: 30%;
-      display: block;
-      margin: 0 auto;
-      margin-top: 20px;
-    }
 }
 
 
