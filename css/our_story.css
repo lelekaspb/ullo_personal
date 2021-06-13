@@ -8,15 +8,24 @@ main {
 
 .hero-heading {
   background-color: #333333;
-  color: #ffffff;
+  color: #eee8e8;
   font-family: var(--font);
 }
+
 .hero-padding > p {
   color: #eee8e8;
   max-width: 1000px;
+  font-size: calc(.6rem + .5vw);
 }
+
+@media only screen and (max-width: 650px) {
+  .hero-padding > p {
+    font-size: calc(0.8rem + 0.3vw);
+  }
+}
+
 .hero-padding {
-  padding: 7rem;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,15 +57,21 @@ h2 {
   margin-top: 6rem;
   padding-bottom: 0;
 }
+
+@media only screen and (max-width: 500px) {
+  h2 {
+    margin-top: 3rem;
+  }
+}
+
 .white-background-section {
   margin-top: 4rem;
 }
-.white-background-section > h3,
-p {
+.white-background-section > p {
   color: #3a3a3a;
   font-family: var(--font);
   font-weight: 400;
-  font-size: 20px;
+  font-size: calc(0.8rem + 0.5vw);
 }
 main {
   margin-bottom: 4rem;
