@@ -1,13 +1,19 @@
 * {
   box-sizing: border-box;
 }
+
+main {
+  margin-top: 62px;
+}
+
 .hero-heading {
   background-color: #333333;
   color: #ffffff;
   font-family: var(--font);
 }
 .hero-padding > p {
-  color: #ffffff;
+  color: #eee8e8;
+  max-width: 1000px;
 }
 .hero-padding {
   padding: 7rem;
@@ -15,13 +21,32 @@
   flex-direction: column;
   align-items: center;
 }
-.heading {
-  font-size: 45px;
-  font-weight: 500;
+
+@media only screen and (max-width: 700px) {
+  .hero-padding {
+    padding: 2rem;
+  }
 }
-h2 {
+
+.heading {
+  font-size: calc(2rem + 1vw);
+  font-weight: 600;
+  background-color: #333333;
+  color: #eee8e8;
+  padding: 2rem 0;
   text-align: center;
-  font-family: var(--font);
+  margin: 0;
+}
+
+h2 {
+  font-size: calc(1.2rem + 1vw);
+  font-weight: 600;
+  color: #333333;
+  padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 6rem;
+  padding-bottom: 0;
 }
 .white-background-section {
   margin-top: 4rem;
@@ -51,7 +76,7 @@ main {
   margin: calc(3rem + 7vw) 0;
 }
 
-.sellpoint.quality {
+.sellpoint.price {
   margin-top: calc(3rem + 2vw);
 }
 
@@ -72,7 +97,7 @@ main {
   .to_hide {
     display: none;
   }
-  .flexibility .to_hide {
+  .friendly .to_hide {
     display: none;
   }
 }
@@ -147,7 +172,7 @@ main {
   color: var(--main-text-color);
 }
 
-.colors .sellpoint_title {
+.sustainability .sellpoint_title {
   left: 45%;
 }
 
@@ -160,15 +185,15 @@ main {
   align-items: center;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .sellpoint_text {
-    grid-column: 1 / span 4;
+    grid-column: 2 / span 5;
     padding-left: 2rem;
     padding-right: 1rem;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .sellpoint_text {
     grid-column: 1 / span 5;
     padding-left: 2rem;
@@ -184,6 +209,12 @@ main {
   .sellpoint_text {
     grid-column: 1 / span 5;
     padding-left: 1rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .sellpoint_text > p {
+    font-size: 1rem;
   }
 }
 
@@ -220,7 +251,7 @@ main {
 }
 
 /* flexibility */
-.flexibility .sellpoint_info {
+.friendly .sellpoint_info {
   position: relative;
   width: 100%;
   height: 100%;
@@ -237,13 +268,13 @@ main {
 }
 
 @media only screen and (max-width: 1200px) {
-  .flexibility .sellpoint_info {
+  .friendly .sellpoint_info {
     grid-column: 3 / span 7;
   }
 }
 
 @media only screen and (max-width: 700px) {
-  .flexibility .sellpoint_info {
+  .friendly .sellpoint_info {
     grid-column: 1/ -1;
     border-left: solid 5px transparent;
     border-radius: 2rem;
@@ -251,7 +282,7 @@ main {
   }
 }
 
-.flexibility .sellpoint_info::before {
+.friendly .sellpoint_info::before {
   content: "";
   position: absolute;
   top: 0;
@@ -270,15 +301,15 @@ main {
 }
 
 @media only screen and (max-width: 430px) {
-  .flexibility .sellpoint_info {
+  .friendly .sellpoint_info {
     border: solid 3px transparent;
   }
-  .flexibility .sellpoint_info::before {
+  .friendly .sellpoint_info::before {
     margin: -3px;
   }
 }
 
-.flexibility .sellpoint_text {
+.friendly .sellpoint_text {
   grid-column: 4 / span 4;
   font-size: calc(0.8rem + 0.5vw);
   display: flex;
@@ -287,17 +318,17 @@ main {
   align-items: center;
 }
 
-@media only screen and (max-width: 700px) {
-  .flexibility .sellpoint_text {
-    grid-column: 4 / span 5;
+@media only screen and (max-width: 800px) {
+  .friendly .sellpoint_text {
+    grid-column: 3 / span 5;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .flexibility .sellpoint_text {
-    grid-column: 4 / span 5;
+@media only screen and (max-width: 700px) {
+  .friendly .sellpoint_text {
+    grid-column: 4 / span 6;
     padding-left: 2rem;
     font-size: calc(0.7rem + 0.6vw);
     display: flex;
@@ -308,17 +339,16 @@ main {
 }
 
 @media only screen and (max-width: 430px) {
-  .flexibility .sellpoint_text {
+  .friendly .sellpoint_text {
     grid-column: 4 / span 5;
     padding-left: 1rem;
   }
 }
 
-.flexibility .sellpoint_visual {
+.friendly .sellpoint_visual {
   background-color: #ffffff;
   border-radius: 100%;
   box-shadow: 0px 10px 30px var(--pantone);
-  /* grid-column: 6 / 2; */
   grid-column: 2 / span 4;
   grid-row: 2 / span 1;
   z-index: 2;
@@ -330,19 +360,18 @@ main {
 }
 
 @media only screen and (max-width: 1200px) {
-  .flexibility .sellpoint_visual {
+  .friendly .sellpoint_visual {
     grid-column: 1 / span 4;
   }
 }
 
-.flexibility .sellpoint_icon {
+.friendly .sellpoint_icon {
   max-width: 18rem;
   width: calc(var(--sellpoint-width) * 0.7);
-  /* width: 100%; */
   height: calc(var(--sellpoint-width) * 0.7);
   position: absolute;
   top: 50%;
-  left: 45%;
+  left: 55%;
   margin-left: calc(-1 * ((var(--sellpoint-width) * 0.7) / 2));
   margin-top: calc(-1 * ((var(--sellpoint-width) * 0.7) / 2));
 }

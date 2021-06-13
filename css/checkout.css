@@ -296,7 +296,15 @@ p {
 
 
 
-
+input#email_order {
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: "Poppins" ;
+  height: auto;
+}
 
 .seperatingline {
   width: 90%;
@@ -451,13 +459,7 @@ a {
   
   
   
-  
-  /* TARA  */
-  
-  /* img {
-    max-width: 100%;
-    width: 100%;
-  } */
+
   
   .hidden_sustainability {
     display: none;
@@ -469,11 +471,7 @@ a {
       margin-bottom: 20px;
       display: block;
     }
-  
-    /* .shopping-cart {
-      display: flex;
-      width: 100%;
-    } */
+
 
     hr{
       display: none;
