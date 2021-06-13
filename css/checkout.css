@@ -18,6 +18,7 @@ main {
   grid-column: 1 / span 1;
   margin: 2rem;
   padding-top: 2rem;
+  color: var(--main-text-color);
 }
 
 aside {
@@ -245,7 +246,7 @@ input#email_order {
   width: 95%;
   margin-bottom: 20px;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #999999;
   border-radius: 3px;
   font-family: "Poppins" ;
   height: auto;
@@ -257,9 +258,7 @@ input#email_order {
   background-color: #C9C9C9;
   margin: 0 auto;
   margin-bottom: 2rem;
-
-
-  }
+}
 
 .seperatingline2 {
   width: 100%;
@@ -299,7 +298,7 @@ a.button1{
   font-size: 16px;
   padding: 14px 28px;
   cursor: pointer;
-  border:0.1em solid black;
+  border:0.1em solid var(--main-text-color);
   display: inline-block;
   margin:  0 2rem;
 }
@@ -309,7 +308,7 @@ a.button2{
   font-size: 16px;
   padding: 14px 28px;
   cursor: pointer;
-  border:0.1em solid black;
+  border:0.1em solid var(--main-text-color);
   display: inline-block;
   margin: 0 2rem;  
 }
@@ -321,6 +320,24 @@ a.button2{
     margin: 0 1rem;
   }
 }
+
+.order_form input[type=text] {
+  border: 2px solid #999999;
+}
+
+.order_form input[type=text]:invalid:not(:placeholder-shown) {
+  border: 2px solid #cc0000;
+}
+
+.order_form input[type=text]:valid {
+  border: 2px solid #2db1cc;
+}
+
+.order_form input[type=text]:focus {
+  border: 2px solid #808080;
+}
+
+
 
 .buttons {
   margin: calc(2rem + 1vw) 0;
