@@ -6,11 +6,10 @@
     <title>Checkout</title>
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
     <link rel="stylesheet" href="css/main.css">
-
     <link rel="stylesheet" href="css/checkout.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" defer></script>
 </head>
 <body>
   <header>
@@ -21,7 +20,7 @@
       <div class="menu_text" id="menu_text_id">
         <ul>
           <li><a href="home.html">Home</a></li>
-          <li class="menu_dropdown active">
+          <li class="menu_dropdown">
             <a href="products.html">Products</a>
             <img
               id="menu_drop1"
@@ -106,69 +105,57 @@
     </form>
    
   </header>
+
   <main>
-      
-        <form>
-            <div class="row">
-                <div class="form">
-                  <div class="container">
-                    <form action="/action_page.php">
-              
-                      <div class="row">
-                        <div class="col-50">
-                            <div id="contact">
-                            <h3>1. Contact</h3>
-                            <div class="seperatingline2"></div>
+    <form class="order_form">
+      <div class="container">
+        <div class="row">
+          <div class="col-50">
 
-                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email_order" name="email" placeholder="john@example.com">
-                            <label>
-                              <input type="checkbox" checked="checked" name="method2"> I want to receive emails with news and offers
-                            </label>
+            <div id="contact">
+              <h3>1. Contact</h3>
+              <div class="seperatingline2"></div>
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="email" id="email_order" name="email_order" placeholder="john@example.com">
+              <label>
+                <input type="checkbox" checked="checked" name="method2"> I want to receive emails with news and offers
+              </label>
 
-                            <hr style="width:30%"><p3>OR </p3> <hr style="width:30%">
-                            <a href="https://www.paypal.com/dk/home" class="button1">PayPal</a>
-                            <a href="https://pay.google.com/" class="button2">Google Pay</a>
+              <hr style="width:30%">
+              <p3>OR </p3>
+              <hr style="width:30%">
+              <div class="pay_alternate">
+                <a href="https://www.paypal.com/dk/home" class="button1">PayPal</a>
+                <a href="https://pay.google.com/" class="button2">Google Pay</a>
+              </div>
+            </div>
 
-
-
-                            </div>
-                        <div id="shipping">
-                          <h3>2. Shipping </h3>
-                          <div class="seperatingline2"></div>
-
-                          <label for="firstname"><i class="name"></i> First Name</label>
-                          <input type="text" id="firstname" name="firstname" placeholder="John">
-
-                          <label for="lastname"><i class="fa fa-user"></i> Last Name</label>
-                          <input type="text" id="lastname" name="lastname" placeholder="Doe">
-                          <label for="adress"><i class="fa fa-address-card-o"></i> Address</label>
-                          <input type="text" id="adress" name="address" placeholder="542 W. 15th Street">
-                          <label for="city"><i class="fa fa-institution"></i> City</label>
-                          <input type="text" id="city" name="city" placeholder="New York">
-                          
-                              <label for="zip">Zip</label>
-                              <input type="text" id="zip" name="zip" placeholder="10001">
-        
-                              <label for="country">Country</label>
-                              <input type="text" id="country" name="country" placeholder="United States">
-        
-                              <label for="phonenumber">Phone Number</label>
-                              <input type="text" id="phonenumber" name="phonenumber" placeholder="905 6789 0456">
-                              
-                        </div>
-                            
-                        </div>
-  
-                        </div>
-
-             
-         
-          
+            <div id="shipping">
+              <h3>2. Shipping </h3>
+              <div class="seperatingline2"></div>
+              <label for="firstname"><i class="name"></i> First Name</label>
+              <input type="text" id="firstname" name="firstname" placeholder="John">
+              <label for="lastname"><i class="fa fa-user"></i> Last Name</label>
+              <input type="text" id="lastname" name="lastname" placeholder="Doe">
+              <label for="adress"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adress" name="address" placeholder="542 W. 15th Street">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="New York">
+              <label for="zip">Zip</label>
+              <input type="text" id="zip" name="zip" placeholder="10001">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" placeholder="United States">
+              <label for="phonenumber">Phone Number</label>
+              <input type="text" id="phonenumber" name="phonenumber" placeholder="905 6789 0456">
+            </div>
+            <div class="buttons">
+              <input type="submit" name="submit" value="Place order" class="place_order" />
+              <a href="cart.html" class="back_to_cart">Back to cart</a>
+            </div>
+          </div>
         </div>
-      
-
-</form>
+      </div>
+      </form>
 </main>
 
 <aside>
@@ -194,37 +181,17 @@
     </div>
     <!--div.order_products ends-->
 
-
-
-<div class="seperatingline"></div>
-<div class="p2">Do you have a discount code?</div>
-
-<div class="discountcodediv">
-  <form action="#" class="discount">
-    <input type="text" id="discountcode" name="discountcode" placeholder="Coupon code"/>
-    <input type="submit" value="Apply coupon" class="button_dark2"/>
-  </form>
-</div>
-<div class="seperatingline"></div>
-<!-- <div class="carttotaltext">
-  <p>Subtotal</p>
-  <p class="carttotalprice"><span>234 DKK</span></p>
-</div> -->
-<div class="shipping_fee">
-  <p>Shipping</p>
-  <p class="shipping_fee_value">49 kr</p>
-</div>
-<div class="seperatingline"></div>
-
-<div class="order_total">
-  <p>Total</p>
-  <p class="order_total_value"><span class="order_total_number"></span>&nbsp;kr</p>
-
-</div>
-<input type="submit" value="Place order" class="button_dark"/>
-
-
-</div>
+    <div class="seperatingline"></div>
+    <div class="shipping_fee">
+      <p>Shipping</p>
+      <p class="shipping_fee_value">49 kr</p>
+    </div>
+    <div class="order_total">
+      <p>Total</p>
+      <p class="order_total_value"><span class="order_total_number"></span>&nbsp;kr</p>
+    </div>
+    <div class="seperatingline"></div>
+    </div>
 
 
     <template class="order_template">
@@ -245,7 +212,22 @@
     </template>
 
   </aside>
+  <div class="loader_wrapper">
+    <div class="loader">
+      <div class="inner one"></div>
+      <div class="inner two"></div>
+      <div class="inner three"></div>
+    </div>
+  </div>
 
+  <div class="modal_form" id="modal_form">
+    <article class="modal-content">
+      <span class="close_form">&times;</span>
+      <p class="modal_form_heading">Thank you for choosing Ullo lights!</p>
+      <p>We will get in touch with you shortly.</p>
+      <img src="assets/images/tree-graphic.png" alt="illustration of a tree" class="modal_form_image">
+    </article>
+  </div>
 
   <footer class="main_footer">
       <div class="footer_wrapper">
@@ -339,6 +321,7 @@
   </footer>
   <script src="js/main.js"></script>
   <script src="js/checkout.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 </body>
 </html>
  

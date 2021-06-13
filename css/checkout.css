@@ -2,6 +2,7 @@ body {
     margin-left: 0px;
     display: grid;
     grid-template-columns: 1fr .7fr;
+    position: relative;
   }
   
 h2.summary_title {
@@ -41,7 +42,7 @@ h2.summary_title {
 
 .order_products_item {
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr 1fr;
+  grid-template-columns: 0.5fr 0.5fr .8fr;
 }
 
 .order_products_item > .title {
@@ -101,11 +102,9 @@ h2.summary_title {
   position: absolute;
   width: calc(var(--dynamic-width) / 3);
   height: calc(var(--dynamic-width) / 3);
-    /* width: 4rem;
-    height: 4rem; */
   background-color: white;
   color: var(--main-text-color);
-  font-size: calc(1rem + 0.5vw);
+  font-size: calc(.7rem + 0.5vw);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,10 +112,8 @@ h2.summary_title {
   top: 50%;
   left: 50%;
   margin: calc(-1 *((var(--dynamic-width) / 3) / 2));
-    /* margin: -2rem; */
   box-shadow:  .5px 1.5px 10px 2px rgba(60, 219, 192, .5);
   transform: rotate(-40deg) translate(calc(var(--dynamic-width) / 2)) rotate(40deg);
-    /* transform: rotate(-50deg) translate(6.5rem) rotate(50deg); */
 }
 
 .shipping_fee {
@@ -124,23 +121,30 @@ h2.summary_title {
   color: #eee8e8;
   justify-content: space-between;
   padding: calc(1rem + 1vw);
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 .shipping_fee p {
   font-size: calc(1rem + .5vw);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .order_total {
   display: flex;
   color: #eee8e8;
   justify-content: space-between;
+  align-items: flex-start;
   padding: calc(1rem + 1vw);
+  padding-top: 0;
   padding-bottom: 0;
 }
 
 .order_total p {
   font-size: calc(1.5rem + .5vw);
   font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 form.discount {
@@ -151,54 +155,51 @@ form.discount {
   border: 1px solid var(--pantone);
 }
 
-  /* input#discountcode {
-    width: 100%;
-  } */
-  form.discount input[type=text] {
-    height: 2.5rem;
-    margin: 0;
-    width: calc(18rem + 5vw);
-    border-radius: 0;
-    border: none;
-  }
+ form.discount input[type=text] {
+  height: 2.5rem;
+  margin: 0;
+  border: none;
+  width: calc(18rem + 5vw);
+  border-radius: 0;
+}
 
-  form.discount input[type=text]::placeholder {
-    font-size: calc(.7rem + .5vw);
-  }
+form.discount input[type=text]::placeholder {
+  font-size: calc(.7rem + .5vw);
+}
 
-  form.discount input[type=submit] {
-    height: 4rem;
-    margin: 0;
-    width: calc(12.5rem + 5vw);
-  }
+form.discount input[type=submit] {
+  height: 4rem;
+  margin: 0;
+  width: calc(12.5rem + 5vw);
+}
 
-  form.discount input[type=submit].button_dark2:hover {
-    opacity: 0.7;
-  }
+form.discount input[type=submit].button_dark2:hover {
+  opacity: 0.7;
+}
 
 
   
-  input[type=text] {
-    width: 80%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-family: "Poppins" ;
-    height: auto;
-  }
+input[type=text] {
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: "Poppins" ;
+  height: auto;
+}
   
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
+label {
+  margin-bottom: 10px;
+  display: block;
+}
 
 
-  input[type=submit].button_dark {
-    margin: calc(1rem + 1vw) auto;
-  }
+input[type=submit].button_dark {
+  margin: calc(1rem + 1vw) auto;
+}
 
-  .p2 {
+.p2 {
   margin-left: calc(1rem + 1vw);
   margin-top: calc(1rem + 1vw);
   margin-bottom: 0;
@@ -216,16 +217,13 @@ form.discount {
   background: #403e3e;
   cursor: pointer;
   color: #3cdbc0;
-  }
+}
 
   
-  .button_dark:hover {
-    box-shadow: 0 0 10px 5px #3cdbc08a;
-  }
-/* 
-  .button_dark2:hover {
-    box-shadow: 0 0 10px 5px #3cdbc08a;
-  } */
+.button_dark:hover {
+  box-shadow: 0 0 10px 5px #3cdbc08a;
+}
+
   
    
   
@@ -304,8 +302,8 @@ p {
   width: 90%;
   height: 0.3px;
   background-color: #C9C9C9;
-  margin-bottom: 1rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
 
 
   }
@@ -327,6 +325,12 @@ hr {
 
 }
 
+.pay_alternate {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 a.button1{
   background-color: inherit;
   font-size: 16px;
@@ -334,7 +338,7 @@ a.button1{
   cursor: pointer;
   border:0.1em solid black;
   display: inline-block;
-margin-left: 20%;
+  margin:  0 2rem;
 
 
 
@@ -347,35 +351,17 @@ margin-left: 20%;
     cursor: pointer;
     border:0.1em solid black;
     display: inline-block;
-  margin-right: 20%;
-  margin-left: 90px;
-
-  
+    margin: 0 2rem;  
     }
-  
 
 
+.buttons {
+  margin: calc(2rem + 1vw) 0;
+  display: flex;
+  justify-content: flex-start;
+}
 
-
-/* .p2 {
-  margin-left: 3rem;
-  color: white;
-  font-size: 1rem;
-  font-family: "Poppins";
-  margin-top: 0.5rem;
-
-} */
-
-
-
-
-/* .discountcodediv{
-  margin: 1rem 1rem;
-  border-radius: 20%;
-  width: 80%;
-} */
-
-.button_dark {
+.place_order {
   font-family: "Poppins";
   font-size: 20px;
   font-weight: 600;
@@ -385,15 +371,41 @@ margin-left: 20%;
   box-shadow: 0 0 5px 4px #3cdbc08a;
   border-radius: 11px;
   padding: 6px;
-  background: #403e3e;
+  background: #ffffff;
   cursor: pointer;
   color: #3cdbc0;
+  margin-right: calc(2rem + 2vw);
+}
+
+.back_to_cart {
+  text-decoration: none;
+  position: relative;
+  color: var(--pantone);
+  font-size: calc(0.7rem + 0.6vw);
+  font-weight: 500;
+}
+
+.back_to_cart::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0.18);
+  height: 2.5px;
+  bottom: 10px;
+  left: 0;
+  background-color: var(--pantone);
+  transform-origin: bottom left;
+  transition: transform 0.2s ease-out;
+}
+
+.back_to_cart:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 
 
-
-.button_dark:hover {
+.place_order:hover {
   box-shadow: 0 0 10px 5px #3cdbc08a;
 }
 
@@ -499,13 +511,141 @@ a {
       margin-top: 20px;
     }
 }
-/*   
-@media only screen  and (max-width:30em) {
-   a.button1 {
-     display: inline;
-    } 
 
-   a.button2 {
-      display: inline;
-    }
-} */
+
+
+
+/* preloader */
+.loader_wrapper {
+  position: absolute;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .95);
+  z-index: 15;
+  display: none;
+}
+
+.loader {
+  position: absolute;
+  bottom: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid var(--pantone);
+}
+
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid var(--pantone);
+}
+
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid var(--pantone);
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+
+
+/* form modal */
+.modal_form {
+  display: none; 
+  position: fixed; 
+  z-index: 15; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(255, 255, 255); 
+  background-color: rgba(255, 255, 255, 0.95); 
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  border: none;
+  box-shadow: 0 0 14px 4px #3cdbc08a;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.modal_form_heading {
+  font-size: calc(1rem + 0.5vw);
+}
+
+.close_form {
+  color: var(--main-text-color);
+  float: right;
+  font-size: 28px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close_form:hover,
+.close_form:focus {
+  color: #3cdbc08a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal_form_image {
+  max-width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

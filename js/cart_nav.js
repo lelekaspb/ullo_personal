@@ -36,11 +36,5 @@ const cartItems = {
       this.updateCartNav();
       this.sync();
     },
-    // deleteCartItem() {
-    //   console.log("cartItems deleteCartItem");
-    //   cartItems.contents--;
-    //   this.updateCartNav();
-    //   this.sync();
-    // },
   };
   cartItems.init();

@@ -24,7 +24,7 @@ function start() {
   const productParent = document.querySelector(".products_list");
 
   function showBulb(bulb) {
-    //console.log(bulb);
+    console.log(bulb);
     const productClone = productTemplate.cloneNode(true);
     productClone.querySelector(".product_title").textContent = bulb.title;
     if (bulb.price_current == bulb.price_regular) {
@@ -130,14 +130,12 @@ function changeToNoColor(e) {
 const cart = {
   contents: JSON.parse(localStorage.getItem("basket")) || [],
   init() {
-    //this.updateDOM();
     this.updateCartNav();
     this.updateLocalStorage();
   },
   updateLocalStorage() {
     // turn CART contents array of objects into a string that we can write in localStorage
     localStorage.setItem("basket", JSON.stringify(this.contents));
-    //CART.updateDOM();
   },
   add(obj) {
     //console.log(obj);

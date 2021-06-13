@@ -2,19 +2,9 @@ const bigImageWidth = document.querySelector(".image_wrapper").offsetWidth;
 console.log(bigImageWidth);
 document.querySelector(".order_products").style.setProperty("--dynamic-width", `${bigImageWidth}px`);
 
-// const mql = window.matchMedia("(max-width: 500px)");
-
 function countDynamicWidth() {
     const bigImageWidth = document.querySelector(".image_wrapper").offsetWidth;
     document.querySelector(".order_products").style.setProperty("--dynamic-width", `${bigImageWidth}px`);
-    
-    // if (mql.matches) {
-    //   console.log("This is a narrow screen — less than 500px wide.");
-    //   document.querySelector(".coupon button > span").innerHTML = "";
-    // } else {
-    //   console.log("This is a wide screen — more than 500px wide.");
-    //   document.querySelector(".coupon button > span").innerHTML  = "Apply coupon ";
-    // };
 }
 
 window.onresize = countDynamicWidth;
@@ -31,7 +21,6 @@ const cart = {
     this.updateLocalStorage();
   },
   updateLocalStorage() {
-    //maybe separate it into two methods?
     localStorage.setItem("basket", JSON.stringify(this.contents));
     localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
   },
@@ -72,12 +61,14 @@ const cart = {
 
 cart.init();
 
+// post order and shipping details
+const form = document.querySelector(".order_form");
+const modal = document.querySelector("#modal_form");
 
-const form = document.querySelector("form");
-form.addEventListener("submit", userSubmitted);
-
-function userSubmitted(evt) {
-  evt.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.querySelector(".loader_wrapper").style.display = "block";
+  console.log("submit");
   console.log(form.elements.firstname.value);
   console.log(form.elements.lastname.value);
   console.log(form.elements.address.value);
@@ -86,7 +77,9 @@ function userSubmitted(evt) {
   console.log(form.elements.country.value);
   console.log(form.elements.phonenumber.value);
 
-  const payload = {
+  form.elements.submit.disabled = true;
+
+  const shippingDetails = {
     firstname: form.elements.firstname.value,
     lastname: form.elements.lastname.value,
     address: form.elements.address.value,
@@ -94,45 +87,66 @@ function userSubmitted(evt) {
     zip: form.elements.zip.value,
     country: form.elements.country.value,
     phonenumber: form.elements.phonenumber.value,
-  };
-  console.log(JSON.stringify(payload));
-  document.querySelector("input[type=submit]").disable = true;
-
-  var myHeaders = new Headers();
-  myHeaders.append("x-apikey", "609090f9f2fc22523a42c7c0");
-  myHeaders.append("Content-Type", "application/json");
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: JSON.stringify(payload),
-    redirect: "follow",
-  };
-  fetch("https://kea2s-c1e7.restdb.io/rest/checkout", requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      document.querySelector("input[type=submit]").disable = false;
-      form.elements.firstname.value = "";
-      form.elements.lastname.value = "";
-      form.elements.address.value = "";
-      form.elements.zip.value = "";
-      form.elements.city.value = "";
-      form.elements.country.value = "";
-      form.elements.phonenumber.value = "";
-      document.querySelector("p.hidden").classList.remove("hidden");
-    })
-    .catch((error) => console.log("error", error));
-}
-
-function readMoreFunction() {
-  var contentText = document.getElementById("content");
-  var btnText = document.getElementById("buttonReadMore");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    contentText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    contentText.style.display = "inline";
   }
+
+  const cartContents = JSON.parse(localStorage.getItem("basket"));
+  console.log(cartContents);
+
+  cartContents.forEach((item) => {
+    // console.log(item);
+    // console.log(shippingDetails);
+
+    const payload = {
+      title: item.title,
+      quantity: item.quantity,
+      product_id: item.product_id,
+      prepared_for_shipping: false,
+      shipping_details: shippingDetails,
+    }
+
+    console.log(payload);
+
+    fetch("https://kea0209-5a57.restdb.io/rest/ullo-orders", {
+    method: "POST",
+    headers: {
+      "x-apikey": "6082d28c28bf9b609975a5db",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      document.querySelector(".loader_wrapper").style.display = "none";
+      console.log(response);
+      showModalForm();
+      clearForm();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  })
+});
+
+function clearForm() {
+  document.querySelector("input[type=submit").disabled = false;
+  form.elements.firstname.value = "";
+  form.elements.lastname.value = "";
+  form.elements.address.value = "";
+  form.elements.city.value = "";
+  form.elements.zip.value = "";
+  form.elements.country.value = "";
+  form.elements.phonenumber.value = "";
 }
+
+function showModalForm() {
+  modal.style.display = "block";
+  document.querySelector("span.close_form").addEventListener("click", (e) => {
+    e.stopPropagation();
+    modal.style.display = "none";
+  });
+  window.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
+

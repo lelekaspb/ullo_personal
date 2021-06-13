@@ -47,6 +47,12 @@ function showBulb(bulb) {
   productClone.querySelector(
     ".title_product_link"
   ).href = `individual_product.html?id=${bulb._id}`;
+  productClone.querySelector(".add_to_cart").addEventListener("click", () => {
+    console.log(bulb);
+    cart.add(bulb);
+    cartItems.sync();
+    cartItems.addCartItem();
+  });
   productParent.appendChild(productClone);
 }
 
@@ -79,3 +85,34 @@ function previousSlide() {
   }
   document.querySelector("#slide").src = moods[index];
 }
+
+
+
+
+// dynamic cart
+const cart = {
+  contents: JSON.parse(localStorage.getItem("basket")) || [],
+  init() {
+    this.updateCartNav();
+    this.updateLocalStorage();
+  },
+  updateLocalStorage() {
+    // turn CART contents array of objects into a string that we can write in localStorage
+    localStorage.setItem("basket", JSON.stringify(this.contents));
+  },
+  add(obj) {
+    //console.log(obj);
+    const index = cart.contents.findIndex((element) => element._id === obj._id);
+    if (index == -1) {
+      console.log(obj);
+      obj.quantity = 1;
+      console.log(cart.contents);
+      cart.contents.push(obj);
+    } else {
+      console.log("found");
+      cart.contents[index].quantity += 1;
+    }
+
+    this.updateLocalStorage();
+  },
+};
