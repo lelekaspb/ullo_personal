@@ -10,6 +10,7 @@ const options = {
 function start() {
   fetch(url, options)
     .then((response) => {
+      document.querySelector(".loader_wrapper").style.display = "none";
       if (!response.ok) {
         throw Error(response.statusText);
       }

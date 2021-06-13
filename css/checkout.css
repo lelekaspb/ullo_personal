@@ -3,7 +3,55 @@ body {
     display: grid;
     grid-template-columns: 1fr .7fr;
     position: relative;
+}
+
+footer,
+header {
+  grid-column: 1 / span 2;
+}
+
+main, aside {
+  margin-top: 62px;
+}
+
+main {
+  grid-column: 1 / span 1;
+  margin: 2rem;
+  padding-top: 2rem;
+}
+
+aside {
+  grid-column: 2 / span 1;
+  padding-top: 2rem;
+}
+
+@media  only screen  and (max-width: 850px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content min-content min-content;
   }
+
+  header {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  aside {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    padding-top: 0;
+  }
+
+  main {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+  }
+
+  footer {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+  }
+}
   
 h2.summary_title {
   font-size: calc(1.2rem + 1vw);
@@ -13,31 +61,15 @@ h2.summary_title {
   margin-bottom: 0;
 }
 
-  main, aside {
-    margin-top: 62px;
-  }
-
-  main {
-    grid-column: 1 / span 1;
-    margin: 2rem;
-    padding-top: 2rem;
-  }
-
-  aside {
-    grid-column: 2 / span 1;
-    padding-top: 2rem;
-  }
-
-  footer {
-    grid-column: 1 / span 2;
-  }
-
-
-
-
 .order_products {
   padding: calc(1rem + 1vw);
   padding-top: 0;
+}
+
+@media  only screen  and (max-width: 850px) {
+  .order_products {
+    padding: calc(2rem + 1vw);
+  }
 }
 
 .order_products_item {
@@ -60,6 +92,20 @@ h2.summary_title {
   justify-content: center;
   align-items: flex-end;
   font-size: calc(1rem + .5vw);
+}
+
+@media  only screen  and (max-width: 1050px) {
+  .order_products_item > .title,
+  .order_products_item > .subtotal {
+    font-size: calc(.8rem + .5vw);
+  }
+}
+
+@media  only screen  and (max-width: 850px) {
+  .order_products_item > .title,
+  .order_products_item > .subtotal {
+    font-size: calc(1rem + .5vw);
+  }
 }
 
 .order_products_item > .order_image {
@@ -145,6 +191,11 @@ h2.summary_title {
   font-size: calc(1.5rem + .5vw);
   font-weight: 500;
   margin-top: 0.5rem;
+}
+
+.button_back_to_cart {
+  margin-bottom: 3rem;
+  margin-left: 2rem;
 }
 
 form.discount {
@@ -247,10 +298,6 @@ input[type=submit].button_dark {
     .method2 {
       font-size: 5em;
     }
-
-    
-
-    
   
     
 
@@ -278,6 +325,13 @@ p {
   display: flex;
   flex-direction: column;
   /* float: right; */
+}
+
+@media  only screen  and (max-width: 850px) {
+  .shopping-cart {
+    border-radius: 0;
+    /* padding: 2rem; */
+  }
 }
 
 
@@ -330,7 +384,19 @@ hr {
   align-items: center;
   margin-left: 40px;
   margin-right: 40px;
+  width: 30%;
+}
 
+@media  only screen  and (max-width: 950px) {
+  hr {
+    width: 20%;
+  }
+}
+
+@media  only screen  and (max-width: 850px) {
+  hr {
+    width: 30%;
+  }
 }
 
 .pay_alternate {
@@ -347,21 +413,25 @@ a.button1{
   border:0.1em solid black;
   display: inline-block;
   margin:  0 2rem;
+}
 
+a.button2{
+  background-color: inherit;
+  font-size: 16px;
+  padding: 14px 28px;
+  cursor: pointer;
+  border:0.1em solid black;
+  display: inline-block;
+  margin: 0 2rem;  
+}
 
-
+@media  only screen  and (max-width: 470px) {
+  a.button1,
+  a.button2 {
+    padding: 0.5rem;
+    margin: 0 1rem;
   }
-
-  a.button2{
-    background-color: inherit;
-    font-size: 16px;
-    padding: 14px 28px;
-    cursor: pointer;
-    border:0.1em solid black;
-    display: inline-block;
-    margin: 0 2rem;  
-    }
-
+}
 
 .buttons {
   margin: calc(2rem + 1vw) 0;
@@ -389,7 +459,7 @@ a.button1{
   text-decoration: none;
   position: relative;
   color: var(--pantone);
-  font-size: calc(0.7rem + 0.6vw);
+  font-size: calc(1rem + 0.6vw);
   font-weight: 500;
 }
 
@@ -399,7 +469,7 @@ a.button1{
   width: 100%;
   transform: scaleX(0.18);
   height: 2.5px;
-  bottom: 10px;
+  bottom: -7px;
   left: 0;
   background-color: var(--pantone);
   transform-origin: bottom left;
@@ -477,7 +547,7 @@ a {
       display: none;
     }
 
-    a.button1 {
+    /* a.button1 {
       display: inline-flex;
       float: center;
       position: relative;
@@ -492,7 +562,7 @@ a {
       text-decoration: underline;
       border:none;
       margin-left: 20%;
-    }
+    } */
 
     .button_dark {
       margin-left: 50%;

@@ -75,7 +75,13 @@ function getData() {
       "x-apikey": "6082d28c28bf9b609975a5db",
     },
   })
-    .then((res) => res.json())
+    .then((response) => {
+      document.querySelector(".loader_wrapper").style.display = "none";
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    })
     .then((response) => {
       console.log(response);
       showProduct(response);
