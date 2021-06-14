@@ -207,6 +207,10 @@ h1 {
     background-position: right 5% top 70%;
 } 
 
+.sort:focus {
+    outline: none;
+}
+
 .products_list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

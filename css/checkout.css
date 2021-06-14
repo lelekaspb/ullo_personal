@@ -195,6 +195,11 @@ h2.summary_title {
   margin-top: 0.5rem;
 }
 
+.vat {
+  font-size: calc(.6rem + .6vw);
+  font-weight: 500;
+}
+
 .button_back_to_cart {
   margin-bottom: 3rem;
   margin-left: 2rem;
@@ -246,7 +251,7 @@ input#email_order {
   width: 95%;
   margin-bottom: 20px;
   padding: 12px;
-  border: 2px solid #999999;
+  /* border: 2px solid #999999; */
   border-radius: 3px;
   font-family: "Poppins" ;
   height: auto;
@@ -321,19 +326,25 @@ a.button2{
   }
 }
 
-.order_form input[type=text] {
+
+
+.order_form input[type=text],
+input#email_order {
   border: 2px solid #999999;
 }
 
-.order_form input[type=text]:invalid:not(:placeholder-shown) {
+.order_form input[type=text]:invalid:not(:placeholder-shown),
+input#email_order:invalid:not(:placeholder-shown) {
   border: 2px solid #cc0000;
 }
 
-.order_form input[type=text]:valid {
+.order_form input[type=text]:valid,
+input#email_order:valid {
   border: 2px solid #2db1cc;
 }
 
-.order_form input[type=text]:focus {
+.order_form input[type=text]:focus,
+input#email_order:focus {
   border: 2px solid #808080;
 }
 

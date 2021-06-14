@@ -327,6 +327,10 @@ footer.main_footer {
   background-color: var(--bg-footer);
 }
 
+.footer_subscribe .form_subscribe input[type="email"]:focus {
+  outline: none;
+}
+
 .footer_subscribe .form_subscribe input[type="email"]::placeholder {
   color: #928f8f;
 }

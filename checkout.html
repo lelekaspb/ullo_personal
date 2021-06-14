@@ -115,8 +115,8 @@
             <div id="contact">
               <h3>1. Contact</h3>
               <div class="seperatingline2"></div>
-              <label for="email"><i class="fa fa-envelope"></i> Email</label>
-              <input type="email" id="email_order" name="email_order" placeholder="john@example.com">
+              <label for="email"><i class="fa fa-envelope"></i> Email *</label>
+              <input type="email" id="email_order" name="email_order" required placeholder="john@example.com">
               <label>
                 <input type="checkbox" checked="checked" name="method2"> I want to receive emails with news and offers
               </label>
@@ -168,7 +168,11 @@
           <span class="title_value value">Glow E27</span>
         </div>
         <div class="subtotal order_product_elem">
-          <span class="subtotal_value value"> <span class="subtotal_value_number">498</span>&nbsp;kr</span>
+          <span class="subtotal_value value"> 
+            <span class="subtotal_value_number">498</span>
+           
+            &nbsp;kr
+          </span>
         </div>
         <div class="order_image">
           <div class="image_wrapper">
@@ -187,8 +191,13 @@
       <p class="shipping_fee_value">49 kr</p>
     </div>
     <div class="order_total">
-      <p>Total</p>
-      <p class="order_total_value"><span class="order_total_number"></span>&nbsp;kr</p>
+      <p>Total
+        <span class="vat"> (incl. vat)</span>
+      </p>
+      <p class="order_total_value"><span class="order_total_number"></span>
+        &nbsp;kr
+       
+      </p>
     </div>
     <div class="seperatingline"></div>
 

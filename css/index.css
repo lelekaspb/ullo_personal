@@ -70,8 +70,8 @@ button.brighten:hover {
   border-left: 90px solid transparent;
   border-right: 90px solid transparent;
   border-bottom: 120px solid rgb(214, 214, 214);
-  border-radius: 50%;
-  margin-top: -3.75rem;
+  border-radius: 30%;
+  margin-top: -3.7rem;
 }
 
 .bulb::after {
