@@ -44,7 +44,7 @@ const cart = {
     orderParent.innerHTML = "";
     let orderTotal = 0;
     cart.contents.forEach((item) => {
-      console.log(item);
+      //console.log(item);
       const id = item._id;
       const orderClone = orderTemplate.cloneNode(true);
       orderClone.querySelector(".title_value").textContent = item.title;
@@ -60,6 +60,8 @@ const cart = {
 }
 
 cart.init();
+
+
 
 // post order and shipping details
 const form = document.querySelector(".order_form");
@@ -90,18 +92,20 @@ form.addEventListener("submit", (e) => {
   }
 
   const cartContents = JSON.parse(localStorage.getItem("basket"));
-  console.log(cartContents);
+  //console.log(cartContents);
 
   cartContents.forEach((item) => {
-    // console.log(item);
+    console.log(item._id);
     // console.log(shippingDetails);
+
+    
 
     const payload = {
       title: item.title,
       quantity: item.quantity,
       product_id: item.product_id,
       prepared_for_shipping: false,
-      shipping_details: shippingDetails,
+      // shipping_details: shippingDetails,
     }
 
     console.log(payload);
@@ -115,10 +119,27 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(payload),
   })
     .then((response) => {
-      document.querySelector(".loader_wrapper").style.display = "none";
-      console.log(response);
-      showModalForm();
-      clearForm();
+      return response.json()
+      .then((res) => {
+        console.log(res);
+        console.log(res._id);
+        const childURL = `https://kea0209-5a57.restdb.io/rest/ullo-orders/${res._id}/shipping_details/`;
+        console.log(childURL);
+        fetch(childURL, {
+          method: "POST",
+          headers: {
+            "x-apikey": "6082d28c28bf9b609975a5db",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(shippingDetails),
+        })
+        .then((res) => {
+          document.querySelector(".loader_wrapper").style.display = "none";
+          console.log(res);
+          showModalForm();
+          clearForm();
+        })
+      })
     })
     .catch((err) => {
       console.error(err);
