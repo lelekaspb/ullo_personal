@@ -164,15 +164,7 @@ const cartInd = {
   init() {
     console.log("cartInd init");
     console.log(this.cartItems);
-    // let cartItems;
-    // let _contents = localStorage.getItem("cartItems");
-    // console.log(_contents);
-    // if (_contents) {
-    //   cartItems = _contents;
-    // } else {
-    //   cartItems = 0;
-    // }
-    this.updateLocalStorage(this.cartItems);
+    //this.updateLocalStorage(this.cartItems);
     this.updateCartNav(this.cartItems);
   },
   updateLocalStorage(cartItems) {
@@ -190,23 +182,6 @@ const cartInd = {
       document.querySelector(".cart_items_counter").style.display = "none";
     }
   },
-  // add(obj) {
-  //   console.log("cartInd add(obj) function");
-  //   const index = cartInd.contents.findIndex(
-  //     (element) => element._id === obj._id
-  //   );
-  //   if (index == -1) {
-  //     console.log(obj);
-  //     obj.quantity = 1;
-  //     console.log(cartInd.contents);
-  //     cartInd.contents.push(obj);
-  //   } else {
-  //     console.log("found");
-  //     cartInd.contents[index].quantity += 1;
-  //   }
-
-  //   this.updateLocalStorage();
-  // },
 };
 cartInd.init();
 console.log(cartInd.contents);

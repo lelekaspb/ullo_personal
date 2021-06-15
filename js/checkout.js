@@ -117,7 +117,7 @@ form.addEventListener("submit", (e) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
-  })
+    })
     .then((response) => {
       return response.json()
       .then((res) => {
@@ -133,17 +133,17 @@ form.addEventListener("submit", (e) => {
           },
           body: JSON.stringify(shippingDetails),
         })
-        .then((res) => {
-          document.querySelector(".loader_wrapper").style.display = "none";
-          console.log(res);
-          showModalForm();
-          clearForm();
-        })
+      .then((res) => {
+        document.querySelector(".loader_wrapper").style.display = "none";
+        console.log(res);
+        showModalForm();
+        clearForm();
       })
     })
-    .catch((err) => {
-      console.error(err);
-    });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
   })
 });
