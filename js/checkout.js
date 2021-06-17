@@ -136,8 +136,13 @@ form.addEventListener("submit", (e) => {
       .then((res) => {
         document.querySelector(".loader_wrapper").style.display = "none";
         console.log(res);
+        cart.contents = [];
+        cart.cartItems = 0;
+        cart.updateLocalStorage();
+        cart.updateCartNav();
         showModalForm();
         clearForm();
+       
       })
     })
   })
@@ -164,9 +169,11 @@ function showModalForm() {
   document.querySelector("span.close_form").addEventListener("click", (e) => {
     e.stopPropagation();
     modal.style.display = "none";
+    window.location.href = "products.html";
   });
   window.addEventListener("click", () => {
     modal.style.display = "none";
+    window.location.href = "products.html";
   });
 }
 
